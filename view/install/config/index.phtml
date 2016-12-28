@@ -1,0 +1,371 @@
+<section class="content">
+
+<div class="row">
+	<div class="col-xs-12 col-sm-offset-3 col-sm-6">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">
+					<i class="fa fa-cogs" aria-hidden="true"></i> <?php echo $this->translate('Company Configuration'); ?>
+				</h3>
+			</div>
+			<div class="box-body">
+				<?php echo $this->form()->openTag($this->form); ?>
+				<?php echo $this->partial('partials/form-errors.phtml', array('errorMsg' => $this->form->getMessages())); ?>
+				
+				<div id="myTabs">
+					<ul class="nav nav-tabs" role="tablist" >
+					
+    					<li role="presentation" class="active">
+    						<a href="#company" aria-controls="company" role="tab" data-toggle="tab">
+    							<i class="fa fa-home"></i> <?php echo $this->translate('Company Settings'); ?>
+    						</a>
+    					</li>
+    					<li role="presentation">
+    						<a href="#config" aria-controls="config" role="tab" data-toggle="tab">
+    							<i class="fa fa-gear"></i> <?php echo $this->translate('Config Settings'); ?>
+    						</a>
+    					</li>
+    					<li role="presentation">
+    						<a href="#email" aria-controls="email" role="tab" data-toggle="tab">
+    							<i class="fa fa-gear"></i> <?php echo $this->translate('E-Mail Settings'); ?>
+    						</a>
+    					</li>
+					</ul>
+				
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane" id="config">
+						
+            				<h3 class="profile-username"><?php echo $this->translate('Application Config'); ?></h3>
+            				<div class="row">
+                          		<div class="col-xs-12 col-sm-4">
+            						<?php $element = $this->form->get('configDateLong'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-4">
+            						<?php $element = $this->form->get('configDateShort'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-4">
+            						<?php $element = $this->form->get('configLang'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-4">
+            						<?php $element = $this->form->get('configCurrency'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-4">
+            						<?php $element = $this->form->get('configCopyYear'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	<div class="row">
+								<div class="col-xs-12">
+									<?php $element = $this->form->get('configRegister'); ?>
+									<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+										<?php echo $this->formElement($element); ?>
+										<label class="control-label"><?php echo $element->getLabel() ?></label>
+										<?php if($this->formElementErrors($element)): ?>
+										<span class="text-danger"><?php echo $this->formElementErrors($element) ?></span>
+										<?php endif; ?>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<?php $element = $this->form->get('configResetPassword'); ?>
+									<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+										<?php echo $this->formElement($element); ?>
+										<label class="control-label"><?php echo $element->getLabel() ?></label>
+										<?php if($this->formElementErrors($element)): ?>
+										<span class="text-danger"><?php echo $this->formElementErrors($element) ?></span>
+										<?php endif; ?>
+									</div>
+								</div>
+							</div>
+                      	</div>
+                      
+                      	<div role="tabpanel" class="tab-pane active" id="company">
+                          	<h3 class="profile-username"><?php echo $this->translate('Company Settings'); ?></h3>
+            				<div class="row">
+                          		<div class="col-xs-12">
+            						<?php $element = $this->form->get('configCompanyName'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-8">
+            						<?php $element = $this->form->get('configCompanyNameShort'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-4">
+            						<?php $element = $this->form->get('configCompanyNameAbv'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-8">
+            						<?php $element = $this->form->get('configCompanyStreet'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-8">
+            						<?php $element = $this->form->get('configCompanyStreetCont'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-6">
+            						<?php $element = $this->form->get('configCompanyCity'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-6">
+            						<?php $element = $this->form->get('configCompanyState'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-4">
+            						<?php $element = $this->form->get('configCompanyPostal'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-4">
+            						<?php $element = $this->form->get('configCompanyPhone'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-4">
+            						<?php $element = $this->form->get('configCompanyPhoneAlt'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<?php echo $this->formSubmit($this->form->get('submit')); ?>
+                      	</div>
+                      	
+                      	<div role="tabpanel" class="tab-pane" id="email">
+                      	<h4><?php echo $this->translate('SMTP Settings'); ?></h4>
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-6">
+            						<?php $element = $this->form->get('configSmtpHost'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-2">
+            						<?php $element = $this->form->get('configSmtpPort'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-6">
+            						<?php $element = $this->form->get('configSmtpSecurity'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-12">
+            						<?php $element = $this->form->get('configSmtpDisplay'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-12">
+            						<?php $element = $this->form->get('configSmtpEmail'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                          	
+                          	<div class="row">
+                          		<div class="col-xs-12 col-sm-12">
+            						<?php $element = $this->form->get('configSmtpPassword'); ?>
+            						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+            							<label class="control-label"><?php echo $element->getLabel() ?></label>
+            							<?php echo $this->formElement($element); ?>
+            							<?php if($this->formElementErrors($element)): ?>
+            								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+            							<?php endif; ?>
+            						</div>
+                          		</div>
+                          	</div>
+                      	
+                      	</div>
+                      	
+        				<?php echo $this->formElement($this->form->get('configId')); ?>
+        				<?php echo $this->formElement($this->form->get('configVersion')); ?>
+        				<?php echo $this->formElement($this->form->get('configHttpAddress')); ?>
+        				
+        				<?php echo $this->form()->closeTag(); ?>
+        			</div>
+        		</div>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+
+<script>
+$( document ).ready(function() {
+	console.log("ready");
+	$('#myTabs a').click(function (e) {
+	  e.preventDefault()
+	  $(this).tab('show');
+	});
+	
+	$('#company').tab('show')
+});
+</script>

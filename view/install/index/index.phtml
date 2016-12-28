@@ -1,0 +1,85 @@
+<section class="content">
+
+<div class="row">
+	<div class="col-xs-12 col-sm-offset-3 col-sm-6">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">
+					<i class="fa fa-database" aria-hidden="true"></i> <?php echo $this->translate('Database Configuration'); ?>
+				</h3>
+			</div>
+			<div class="box-body">
+				<?php if($this->configError): ?>
+				<div class="alert alert-danger">
+					<p><i class="fa fa-warning"></i> <?php echo $this->translate('Config folder is not writable. Please correct and reload this page.');?></p>
+				</div>
+				<?php else: ?>
+				<div class="alert alert-info">
+					<p><i class="fa fa-info-circle"></i> <?php echo $this->translate('You must first create an empty database.')?></p>
+				</div>
+				<?php echo $this->form()->openTag($this->form); ?>
+								
+				<div class="row">
+              		<div class="col-xs-12">
+						<?php $element = $this->form->get('dbname'); ?>
+						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+							<label class="control-label"><?php echo $element->getLabel() ?></label>
+							<?php echo $this->formElement($element); ?>
+							<?php if($this->formElementErrors($element)): ?>
+								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+							<?php endif; ?>
+						</div>
+              		</div>
+              	</div>
+				
+				<div class="row">
+              		<div class="col-xs-12">
+						<?php $element = $this->form->get('db1Host'); ?>
+						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+							<label class="control-label"><?php echo $element->getLabel() ?></label>
+							<?php echo $this->formElement($element); ?>
+							<?php if($this->formElementErrors($element)): ?>
+								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+							<?php endif; ?>
+						</div>
+              		</div>
+              	</div>
+              	
+              	<div class="row">
+              		<div class="col-xs-12">
+						<?php $element = $this->form->get('db1Username'); ?>
+						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+							<label class="control-label"><?php echo $element->getLabel() ?></label>
+							<?php echo $this->formElement($element); ?>
+							<?php if($this->formElementErrors($element)): ?>
+								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+							<?php endif; ?>
+						</div>
+              		</div>
+              	</div>
+              	
+              	<div class="row">
+              		<div class="col-xs-12">
+						<?php $element = $this->form->get('db1Password'); ?>
+						<div class="form-group <?php if($this->formElementErrors($element)) echo "has-error has-feedback" ?>">
+							<label class="control-label"><?php echo $element->getLabel() ?></label>
+							<?php echo $this->formElement($element); ?>
+							<?php if($this->formElementErrors($element)): ?>
+								<span class="text-danger"><?php echo $this->formElementErrors($element) ?> </span>
+							<?php endif; ?>
+						</div>
+              		</div>
+              	</div>
+				
+				
+				
+				
+				<?php echo $this->formSubmit($this->form->get('submit')); ?>
+				<?php echo $this->form()->closeTag(); ?>
+				<?php endif;?>
+			</div>
+		</div>
+	</div>
+</div>
+
+</section>
