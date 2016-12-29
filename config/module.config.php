@@ -3,7 +3,7 @@ return array(
     'module' => array(
         'Install' => array(
             'name' => 'Install',
-            'version' => '1.0.3',
+            'version' => '1.0.4',
             'install' => array(
                 'require' => array(),
             )
