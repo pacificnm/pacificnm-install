@@ -1,6 +1,7 @@
-# pacificnm-acl
+# pacificnm-install
 
-Provides a lightweight and flexible access control list (ACL) implementation for privileges management.
+Provides module installer for PacificNM.
 
 File issues at https://github.com/pacificnm/pacificnm-acl/issues
+
 Documentation is at https://github.com/pacificnm/pacificnm-acl/
